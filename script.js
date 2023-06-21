@@ -8,8 +8,8 @@ const password = document.querySelector("#password");
 const passwordRep = document.querySelector("#password-rep");
 var check = false;
 const allFields = document.querySelectorAll("input");
-
 const passwordWarning = document.querySelector(".warning");
+const themeSwitch = document.querySelector(".theme-switch");
     
 firstName.addEventListener("input", () =>{ validation1(firstName, 900, "First name must be at least 2 letters long.", "First name must only contain letters." ); });
 
@@ -34,7 +34,7 @@ dateOfBirth.addEventListener("change", (e) => {
         dateOfBirth.setCustomValidity("Please enter a valid value");} })
 
 //RFC2822 email validation
-var emailformat = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+const emailformat = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
 email.addEventListener("input", (e) => {
     email.setCustomValidity(""); 
@@ -106,3 +106,31 @@ function validation1 (field, timeout, valmsg1, valmsg2) {
         field.classList.add("valid");
         field.setCustomValidity("");
         return true; } } 
+
+//switch theme on switch click
+themeSwitch.addEventListener("click", () => {
+    if(themeSwitch.textContent=="dark_mode") { darkTheme(themeSwitch); } 
+    else { lightTheme(themeSwitch); } })
+
+//switch theme upon prefered color scheme change
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    if (event.matches) { darkTheme(themeSwitch); } 
+    else { lightTheme(themeSwitch); } })
+
+//initially sets the theme according to prefered color scheme
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { 
+    darkTheme(themeSwitch); }
+else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    lightTheme(themeSwitch); }
+
+function lightTheme(themeSwitch) {
+    const html = document.querySelector("html");
+    html.classList.remove("theme-dark");
+    html.classList.add("theme-light");
+    themeSwitch.textContent="dark_mode";  }
+
+function darkTheme(themeSwitch) {
+    const html = document.querySelector("html");
+    html.classList.remove("theme-light");
+    html.classList.add("theme-dark");
+    themeSwitch.textContent="light_mode"; }
