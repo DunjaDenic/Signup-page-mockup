@@ -57,8 +57,12 @@ password.addEventListener("input", (e) => {
     password.classList.remove("invalid"); })
 password.addEventListener("change", () =>{
     check = validation1(password, 900, "Password must be at least 8 characters", "Password must contain at least 1 number or special character and a minimum of 8 characters");
-    if (check==true) passwordWarning.style.visibility="hidden";
-    else passwordWarning.style.visibility="visible" });
+    if (check==true) {
+        passwordWarning.style.color="var(--dim-green)";
+        passwordWarning.textContent="All good!" }
+    else {
+        passwordWarning.style.color="var(--dim-red)";
+        passwordWarning.textContent="At least 1 number/special and minimum 8 characters"; } });
 
 passwordRep.addEventListener("input", (e) => {
     passwordRep.setCustomValidity(""); 

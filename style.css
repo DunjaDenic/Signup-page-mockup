@@ -45,7 +45,7 @@ input:focus{outline: none;}
     --border-radius-large: 2.5em;
     --border-radius-small: 0.5em;
     --cg-fs: Century Gothic, sans-serif;
-    --dark-filter: brightness(110%); }
+    --brightness-filter: brightness(110%); }
 
 :root.theme-dark { 
     --text: #dcdfe8;
@@ -86,7 +86,8 @@ body {
     border: 3px solid var(--accent);
     border-radius: var(--border-radius-large);
     padding: 1.3rem 2.5rem;
-    box-shadow: 10px 10px var(--shadow1), -10px -10px var(--shadow2);}
+    box-shadow: 10px 10px var(--shadow1), -10px -10px var(--shadow2);
+    transition: all 0.5s ease;}
 form {   
     display: flex;
     flex-direction: column; }
@@ -125,17 +126,19 @@ input {
     outline: 1px solid var(--accent); 
     border-color: var(--accent);
     background: var(--background); 
-    filter: var(--dark-filter); }
+    filter: var(--brightness-filter); }
 input::placeholder {
     font-size: 0.8rem;
     color: var(--light-text);}
 
 form .valid {
     outline: 1px solid var(--dim-green);
-    border-color: var(--dim-green); }
+    border-color: var(--dim-green); 
+     transition: all 0.5s ease;}
 form .invalid {
     outline: 1px solid var(--dim-red);
-    border-color: var(--dim-red); }
+    border-color: var(--dim-red);
+    transition: all 0.5s ease; }
 
 button{
     font-size: 0.9rem;
@@ -148,7 +151,12 @@ button{
     font-weight: 600;}
 button:hover {
     cursor: pointer;
-    filter: brightness(120%);}
+    filter: var(--brightness-filter);
+    transition: all 0.4s ease; }
+button:focus {
+    border-color: transparent;
+    outline: none;
+    filter: var(--brightness-filter); }
 
 .small-text {
     color: var(--dim-red);
@@ -156,8 +164,8 @@ button:hover {
     font-size: 0.8rem; }
 li .small-text {
     margin-bottom: -0.25rem;
-    transform: translate(0.4rem , 0.2rem); 
-    visibility: visible; }
+    transform: translate(0.4rem , 0.2rem);
+    transition: all 1s ease; }
 
 ::-webkit-datetime-edit { color: var(--light-text); }
 ::-webkit-calendar-picker-indicator { background-color: gray; z-index: 1; opacity: 0;}
