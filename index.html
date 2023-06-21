@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang=en class="theme-light">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <title>Sign up</title>
+    <link rel = "icon" href="" type = "image/x-icon">
+</head>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+    <div id="content">
+        <p class="small-text">All fields are required</p>
+        <form>
+            <legend>Personal information</legend>
+            <fieldset>
+                <ul>
+                    <li>
+                        <label for="first-name">First name:</label>
+                        <input type="text" id="first-name" name="first-name" minlength="2" maxlength="25" placeholder="John" pattern="[a-zA-Z]+" spellcheck="false" required>
+                    </li>
+                    <li>
+                        <label for="last-name">Last name:</label>
+                        <input type="text" id="last-name" name="last-name" minlength="2" maxlength="25" placeholder="Smith" pattern="[a-zA-Z]+" spellcheck="false" required>
+                    </li>
+                    <li>
+                        <label for="d-o-b">Date of birth:</label>  
+                        <input type="date" id="d-o-b" name="d-o-b"  placeholder="Choose a Date" required>
+                        <span class="material-symbols-rounded calendar">
+                            calendar_today
+                        </span>
+                    </li>
+                    <li>
+                        <label for="email">Email adress:</label>
+                        <input type="text" id="email" name="email" placeholder="example@domain.com" spellcheck="false" required>
+                    </li>
+                </ul>
+            </fieldset>
+            <legend>Account information</legend>
+            <fieldset>
+                <ul>
+                    <li>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="john_s_23" minlength="2" maxlength="20" spellcheck="false" required>
+                    </li>
+                    <li>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-zA-Z]).*$" required>
+                        <p class="small-text warning">At least 1 number/special and minimum 8 characters</p>
+                    </li>
+                    <li>
+                        <label for="password-rep">Repeat password:</label>
+                        <input type="password" id="password-rep" name="password-rep" required>
+                    </li>
+                </ul>
+            </fieldset>
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
