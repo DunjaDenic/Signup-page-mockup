@@ -62,7 +62,7 @@ password.addEventListener("change", () =>{
         passwordWarning.textContent="All good!" }
     else {
         passwordWarning.style.color="var(--dim-red)";
-        passwordWarning.textContent="At least 1 number/special and minimum 8 characters"; } });
+        passwordWarning.textContent="At least 1 number/special and minimum 8 chars"; } });
 
 passwordRep.addEventListener("input", (e) => {
     passwordRep.setCustomValidity(""); 

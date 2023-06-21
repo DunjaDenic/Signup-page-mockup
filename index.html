@@ -5,24 +5,23 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <title>Sign up</title>
-    <link rel = "icon" href="" type = "image/x-icon">
 </head>
 <body>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
     <p class="theme-bg"><span class="material-symbols-rounded theme-switch"   title="Theme switch" aria-label="auto" aria-live="polite">dark_mode</span></p>
     <div id="content">
         <p class="small-text">All fields are required</p>
-        <form>
+        <form method="post" action="./done.html">
             <legend>Personal information</legend>
             <fieldset>
                 <ul>
                     <li>
                         <label for="first-name">First name:</label>
-                        <input type="text" id="first-name" name="first-name" minlength="2" maxlength="25" placeholder="John" pattern="[a-zA-Z]+" spellcheck="false" required>
+                        <input type="text" id="first-name" name="first-name" minlength="2" maxlength="25" placeholder="John" pattern="[a-zA-Z]+" spellcheck="false" autocomplete="given-name" required>
                     </li>
                     <li>
                         <label for="last-name">Last name:</label>
-                        <input type="text" id="last-name" name="last-name" minlength="2" maxlength="25" placeholder="Smith" pattern="[a-zA-Z]+" spellcheck="false" required>
+                        <input type="text" id="last-name" name="last-name" minlength="2" maxlength="25" placeholder="Smith" pattern="[a-zA-Z]+" spellcheck="false" autocomplete="family-name" autocomplete="bday" required>
                     </li>
                     <li>
                         <label for="d-o-b">Date of birth:</label>  
@@ -33,7 +32,7 @@
                     </li>
                     <li>
                         <label for="email">Email adress:</label>
-                        <input type="text" id="email" name="email" placeholder="example@domain.com" spellcheck="false" required>
+                        <input type="text" id="email" name="email" placeholder="example@domain.com" spellcheck="false" autocomplete="email" required>
                     </li>
                 </ul>
             </fieldset>
@@ -42,16 +41,16 @@
                 <ul>
                     <li>
                         <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" placeholder="john_s_23" minlength="2" maxlength="20" spellcheck="false" required>
+                        <input type="text" id="username" name="username" placeholder="john_s_23" minlength="2" maxlength="20" spellcheck="false" autocomplete="username" required>
                     </li>
                     <li>
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-zA-Z]).*$" required>
+                        <input type="password" id="password" name="password" minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-zA-Z]).*$" autocomplete="off" required>
                         <p class="small-text warning">At least 1 number/special and min. 8 chars</p>
                     </li>
                     <li>
                         <label for="password-rep">Repeat password:</label>
-                        <input type="password" id="password-rep" name="password-rep" required>
+                        <input type="password" id="password-rep" name="password-rep" autocomplete="off" required>
                     </li>
                 </ul>
             </fieldset>

@@ -49,7 +49,7 @@ input:focus{outline: none;}
 
 :root.theme-dark { 
     --text: #c4c8d4;
-    --background: #0d0d0d;
+    --background: #141414;
     --primary-button: #218bfd;
     --secondary-button: #f0f0ff;
     --accent: #2a52c9;
@@ -82,13 +82,13 @@ body {
     font-family: var(--cg-fs); }
 
 #content {
-    margin: 0 0 20px 20px;
+    margin: 0 20px 0px 20px;
     background-color: var(--background);
     border: 3px solid var(--accent);
     border-radius: var(--border-radius-large);
-    padding: 1.3rem min(2.3rem, 3%);
+    padding: 1.3rem min(2.5rem, 3%);
     box-shadow: 10px 10px var(--shadow1), -10px -10px var(--shadow2);
-    transition: all 0.5s ease;}
+    transition: all 0.5s ease; }
 form {   
     display: flex;
     flex-direction: column; }
@@ -99,7 +99,7 @@ legend {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding-bottom: 0.3rem;
-    font-weight: 600;}
+    font-weight: 600; }
 
 fieldset{
     margin-bottom: 0.8rem; }
@@ -130,18 +130,18 @@ input {
     filter: var(--brightness-filter); }
 input::placeholder {
     font-size: 0.8rem;
-    color: var(--light-text);}
+    color: var(--light-text); }
 
 form .valid {
     outline: 1px solid var(--dim-green);
     border-color: var(--dim-green); 
-     transition: all 0.5s ease;}
+     transition: all 0.5s ease; }
 form .invalid {
     outline: 1px solid var(--dim-red);
     border-color: var(--dim-red);
     transition: all 0.5s ease; }
 
-button{
+button {
     font-size: 0.9rem;
     background-color: var(--primary-button);
     color: var(--secondary-button);
@@ -149,7 +149,7 @@ button{
     padding: 0.4rem 1.6rem;
     border-color: transparent;
     font-family: var(--cg-fs);
-    font-weight: 600;}
+    font-weight: 600; }
 button:hover {
     cursor: pointer;
     filter: var(--brightness-filter);
@@ -169,15 +169,16 @@ li .small-text {
     transition: all 1s ease; }
 
 ::-webkit-datetime-edit { color: var(--light-text); }
-::-webkit-calendar-picker-indicator { z-index: 1; opacity: 0;}
-::-webkit-calendar-picker-indicator { z-index: 1; opacity: 0; cursor: pointer;}
+::-webkit-datetime-edit:focus-within { color: var(--text); }
+input[type='date']::-webkit-datetime-edit-hour-field:focus{color: var(--text);} 
+::-webkit-calendar-picker-indicator { z-index: 1; opacity: 0; cursor: pointer; }
 .calendar {
     position: absolute;
     right: 2%;
     top: 32%;
     pointer-events: none;
     z-index: 2; 
-    color: var(--text);}
+    color: var(--text); }
 
 .theme-bg {
     z-index: 2;
@@ -193,6 +194,22 @@ li .small-text {
     cursor: pointer;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
-    transform: rotate(-20deg); }
+    transform: rotate(-15deg); }
+
+h1{
+    font-size: 2rem;
+    color: var(--accent);
+    background: -webkit-linear-gradient(45deg, var(--primary-button),  var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.3rem;
+    font-weight: 600; 
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text);
+  -webkit-box-shadow: 0 0 0px 40rem var(--light-text) inset;}
     
 /*add color transition for input fields*/
