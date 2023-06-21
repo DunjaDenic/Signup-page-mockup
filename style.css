@@ -82,10 +82,11 @@ body {
     font-family: var(--cg-fs); }
 
 #content {
+    margin: 0 0 20px 20px;
     background-color: var(--background);
     border: 3px solid var(--accent);
     border-radius: var(--border-radius-large);
-    padding: 1.3rem 2.5rem;
+    padding: 1.3rem min(2.3rem, 3%);
     box-shadow: 10px 10px var(--shadow1), -10px -10px var(--shadow2);
     transition: all 0.5s ease;}
 form {   
